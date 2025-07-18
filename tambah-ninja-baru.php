@@ -26,24 +26,14 @@ $levelNinjaList = $query->fetchAll(PDO::FETCH_ASSOC);
     <title>Tambah Ninja Baru</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliB<C<KTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        body { background-color: #d1ecf1; }
+    </style>
 </head>
 
 <body>
-    <?php
-    $menuredirection = array(
-        "daftarninjaURL" => "daftar-ninja.php",
-        "tambahninjabaruURL" => "tambah-ninja-baru.php",
-        "daftarninjaText" => "Daftar Ninja",
-        "tambahninjabaruText" => "Tambah Ninja Baru"
-    );
-    ?>
+    <?php include 'navbar.php'; ?>
 
-    <a href="index.html"><b>Sistem Informasi Ninja</b></a> |
-    <a href="<?php echo $menuredirection["daftarninjaURL"] ?>">
-        <?php echo $menuredirection["daftarninjaText"] ?></a> |
-    <a href="<?php echo $menuredirection["tambahninjabaruURL"] ?>">
-        <?php echo $menuredirection["tambahninjabaruText"] ?></a>
-    <hr>
     <h1>Tambah Ninja Baru</h1>
     <p>Isi formulir di bawah ini dengan data ninja baru.</p>
     <hr>
@@ -52,13 +42,13 @@ $levelNinjaList = $query->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><b>Nama</b></td>
                 <td>
-                    <input type="text" name="nama_ninja">
+                    <input type="text" name="nama_ninja" required>
                 </td>
             </tr>
             <tr>
                 <td><b>Jenis Kelamin</b></td>
                 <td>
-                    <select name="jenis_kelamin">
+                    <select name="jenis_kelamin" required>
                         <option value=""></option>
                         <?php foreach ($jenisKelaminList as $jenisKelamin): ?>
                             <option value="<?php echo $jenisKelamin['id_jenis_kelamin']; ?>">
@@ -71,7 +61,7 @@ $levelNinjaList = $query->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><b>Desa</b></td>
                 <td>
-                    <select name="desa">
+                    <select name="desa" required>
                         <option value=""></option>
                         <?php foreach ($desaList as $desa): ?>
                             <option value="<?php echo $desa['id_desa']; ?>">
@@ -84,7 +74,7 @@ $levelNinjaList = $query->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><b>Level</b></td>
                 <td>
-                    <select name="level_ninja">
+                    <select name="level_ninja" required>
                         <option value=""></option>
                         <?php foreach ($levelNinjaList as $levelNinja): ?>
                             <option value="<?php echo $levelNinja['id_level_ninja']; ?>">

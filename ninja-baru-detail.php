@@ -7,24 +7,13 @@
     <title>Detail Ninja</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        body { background-color: #d1ecf1; }
+    </style>
 </head>
 
 <body>
-    <?php
-    $menuredirection = array(
-        "daftarninjaURL" => "daftar-ninja.php",
-        "tambahninjabaruURL" => "tambah-ninja-baru.php",
-        "daftarninjaText" => "Daftar Ninja",
-        "tambahninjabaruText" => "Tambah Ninja Baru"
-    );
-    ?>
-
-    <a href="index.html"><b>Sistem Informasi Ninja</b></a> |
-    <a href="<?php echo $menuredirection["daftarninjaURL"] ?>">
-        <?php echo $menuredirection["daftarninjaText"] ?></a> |
-    <a href="<?php echo $menuredirection["tambahninjabaruURL"] ?>">
-        <?php echo $menuredirection["tambahninjabaruText"] ?></a>
-    <hr>
+    <?php include 'navbar.php'; ?>
 
     <?php
     $servername = "localhost";

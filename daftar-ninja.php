@@ -7,6 +7,37 @@
     <title>Daftar Ninja</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #d1ecf1;
+        }
+
+        .ninja-table {
+            background-color: #f8f9fa;
+            /* light grey */
+            color: #000;
+        }
+
+        .ninja-table th,
+        .ninja-table td {
+            color: #000;
+        }
+
+        .hapus-col {
+            background-color: #f8d7da;
+            /* light red */
+        }
+
+        .detail-col {
+            background-color: #d4edda;
+            /* light green */
+        }
+
+        .edit-col {
+            background-color: #fff3cd;
+            /* light yellow */
+        }
+    </style>
 </head>
 
 <body>
@@ -35,7 +66,7 @@
             echo "<p>Gagal menghapus ninja: " . $e->getMessage() . "</p>";
         }
     }
-    
+
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -46,46 +77,37 @@
                             level_ninja.level_ninja AS level_ninja
                             FROM ninja
                             LEFT JOIN desa ON ninja.desa = desa.id_desa
-                            LEFT JOIN level_ninja ON ninja.level_ninja = level_ninja.id_level_ninja"
+                            LEFT JOIN level_ninja ON ninja.level_ninja = level_ninja.id_level_ninja ORDER BY ninja.nama ASC"
         );
         $daftarNinja = $query->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "<p>Koneksi gagal: " . $e->getMessage() . "</p>";
     }
-
-    $menuredirection = array(
-        "daftarninjaURL" => "daftar-ninja.php",
-        "tambahninjabaruURL" => "tambah-ninja-baru.php",
-        "daftarninjaText" => "Daftar Ninja",
-        "tambahninjabaruText" => "Tambah Ninja Baru"
-    );
     ?>
 
-    <a href="index.html"><b>Sistem Informasi Ninja</b></a> |
-    <a href="<?php echo $menuredirection["daftarninjaURL"] ?>">
-        <?php echo $menuredirection["daftarninjaText"] ?></a> |
-    <a href="<?php echo $menuredirection["tambahninjabaruURL"] ?>">
-        <?php echo $menuredirection["tambahninjabaruText"] ?></a>
-    <hr>
+    <?php include 'navbar.php'; ?>
+
     <h1>Daftar Ninja</h1>
     <p>Berikut adalah informasi daftar ninja.</p>
     <hr>
-    <table border="1" width="50%">
+    <table class="ninja-table" border="1" width="50%">
         <tr>
-            <td></td>
-            <td><b>Nama</b></td>
-            <td><b>Desa</b></td>
-            <td><b>Level</b></td>
-            <td></td>
+            <th class="hapus-col"></th>
+            <th>Nama</th>
+            <th>Desa</th>
+            <th>Level</th>
+            <th class="detail-col"></th>
+            <th class="edit-col"></th>
         </tr>
         <?php
         foreach ($daftarNinja as $ninja) {
             echo "<tr>";
-            echo "<td><a href='daftar-ninja.php?deleteid=" . $ninja["id_ninja"] . "'>Hapus</a></td>";
+            echo "<td class='hapus-col'><a href='daftar-ninja.php?deleteid=" . $ninja["id_ninja"] . "'>Hapus</a></td>";
             echo "<td>" . $ninja["nama"] . "</td>";
             echo "<td>" . $ninja["desa"] . "</td>";
             echo "<td>" . $ninja["level_ninja"] . "</td>";
-            echo "<td><a href='detail-ninja.php?id=" . $ninja["id_ninja"] . "'>Lihat Detail</a></td>";
+            echo "<td class='detail-col'><a href='detail-ninja.php?id=" . $ninja["id_ninja"] . "'>Lihat Detail</a></td>";
+            echo "<td class='edit-col'><a href='edit-ninja.php?id=" . $ninja["id_ninja"] . "'>Edit</a></td>";
             echo "</tr>";
         }
         ?>
