@@ -1,0 +1,132 @@
+body {
+    background-color: #d1ecf1;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+.navbar-link {
+    color: #6c757d;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+}
+.navbar-link:hover {
+    color: #343a40;
+    text-decoration: underline;
+}
+.navbar-logout {
+    color: #3182ce;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.navbar-logout:hover {
+    color: #1a365d;
+    text-decoration: underline;
+}
+
+.welcome-animate {
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3182ce, #63b3ed, #90cdf4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeSlideIn 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+.welcome-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+}
+.component-animate {
+    display: block;
+    animation: fadeSlideIn 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.custom-hr {
+    border: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3182ce, #63b3ed, #90cdf4);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ninja-table {
+    background-color: #f8f9fa;
+    color: #000;
+}
+.ninja-table th,
+.ninja-table td {
+    color: #000;
+}
+.hapus-col {
+    background-color: #f8d7da;
+}
+.detail-col {
+    background-color: #d4edda;
+}
+.edit-col {
+    background-color: #fff3cd;
+}
+
+.login-box {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 32px 24px;
+}
+.btn-login {
+    background-color: #90cdf4;
+    color: #000;
+    border: none;
+}
+.btn-login:hover {
+    background-color: #63b3ed;
+    color: #fff;
+}
+
+.table.table-bordered.table-hover.shadow.rounded {
+    width: 70%;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
+
+/* Table column widths for detail/edit/add pages */
+td[colwidth-30] {
+    width: 30%;
+}
+td[colwidth-70] {
+    width: 70%;
+}
+
+/* Main content left margin */
+.main-content {
+    margin-left: 40px;
+}
+
+/* Form control for file input */
+input[type="file"].form-control {
+    background-color: #e9ecef;
+}

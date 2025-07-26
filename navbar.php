@@ -1,14 +1,22 @@
 <?php
 $menuredirection = array(
-    "daftarninjaURL" => "daftar-ninja.php",
-    "tambahninjabaruURL" => "tambah-ninja-baru.php",
-    "daftarninjaText" => "Daftar Ninja",
-    "tambahninjabaruText" => "Tambah Ninja Baru"
+    "ninjaListURL" => "ninja-list.php",
+    "addNewNinjaURL" => "add-new-ninja.php",
+    "ninjaListText" => "Ninja List",
+    "addNewNinjaText" => "Add New Ninja"
 );
 ?>
-<a href="index.html"><b>Sistem Informasi Ninja</b></a> |
-<a href="<?php echo $menuredirection["daftarninjaURL"] ?>">
-    <?php echo $menuredirection["daftarninjaText"] ?></a> |
-<a href="<?php echo $menuredirection["tambahninjabaruURL"] ?>">
-    <?php echo $menuredirection["tambahninjabaruText"] ?></a>
+<link rel="stylesheet" href="assets/css/style.css">
+<div class="navbar-container">
+    <div class="navbar-left">
+        <a href="dashboard.php" class="navbar-link"><b>Ninja Information System</b></a>
+        <span class="navbar-link">|</span>
+        <a href="<?php echo $menuredirection["ninjaListURL"] ?>" class="navbar-link">
+            <?php echo $menuredirection["ninjaListText"] ?></a>
+        <span class="navbar-link">|</span>
+        <a href="<?php echo $menuredirection["addNewNinjaURL"] ?>" class="navbar-link">
+            <?php echo $menuredirection["addNewNinjaText"] ?></a>
+    </div>
+    <a href="logout-process.php" class="navbar-logout">Logout</a>
+</div>
 <hr>
